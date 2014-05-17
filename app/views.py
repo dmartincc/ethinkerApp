@@ -41,7 +41,7 @@ def searchES(query):
 def index():
 
     db = get_db('dev-ethinker')
-    last24Hours = datetime.now() - timedelta(hours=24)
+    last24Hours = datetime.now() - timedelta(hours=12)
     
     pipeTopMentions = [{"$match":{ "date":{"$gt": last24Hours}}},
                                 {"$unwind":"$entities"},

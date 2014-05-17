@@ -14,6 +14,9 @@ for item in status:
 	if "sentiment" in item:
 		item["sentimentScore"]=item["sentiment"][0]
 		item["sentimentCategory"]=item["sentiment"][1].encode('utf-8')
-		db.articles.update({"titlePost":item['titlePost']},item)
+		try:
+			db.articles.update({"titlePost":item['titlePost']},item)
+		except:
+			pass
 		
 
