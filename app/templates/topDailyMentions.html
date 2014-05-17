@@ -41,12 +41,12 @@ d3.json(data, function(error, root) {
              return rgbScale(d.color);
 
       })
-      .attr("opacity",".3");
+      .attr("opacity",".9");
 
   node.append("text")
       .attr("dy", ".3em")
       .style("text-anchor", "middle")
-      .text(function(d) { return d.className.substring(0, d.r / 3); });
+      .text(function(d) { return d.className.substring(0, d.r / 2); });
 });
 
 // Returns a flattened hierarchy containing all leaf nodes under the root.
@@ -116,7 +116,7 @@ d3.json(data, function(error, root) {
              return rgbScale(d.color);
 
       })
-      .attr("opacity",".5");
+      .attr("opacity",".9");
 
   node.append("text")
       .attr("dy", ".3em")

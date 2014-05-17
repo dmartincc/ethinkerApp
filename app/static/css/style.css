@@ -13,14 +13,22 @@ body {
   padding-right: 0;
   background: transparent;
 }
-#title {
+
+#title{
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.129412);
   font-size: 75px;
   text-align: center;
   color: black;
-  font-family:"sansita one";
+  font-family:"brandon-grotesque", helvetica, arial;
   font-weight: 500;
 }
+
+h1,h2,h3,h4, h5, h6,p {  
+  color: grey;
+  font-family:"brandon-grotesque", helvetica, arial;
+  font-weight: 500;
+}
+
 #nav-bar{
   background: rgba(255, 255, 255, 0.278431);
   border: none;
