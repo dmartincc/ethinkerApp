@@ -1,0 +1,91 @@
+{
+ "entityName": "Rajoy",
+ "sentiments": [
+{
+        "dateSentiment": "2013-01-01",
+        "media": "NewsPapers",
+        "category": "Corrupcion",
+        "totalMentions":"10403",
+        "positiveSentiment":"0",
+        "negativeSentiment":"10"
+},
+{
+        "dateSentiment": "2013-01-02",
+        "media": "NewsPapers",
+        "category": "Politica",
+        "totalMentions":"11323",
+        "positiveSentiment":"3",
+        "negativeSentiment":"9"
+},
+{
+        "dateSentiment": "2013-01-03",
+        "media": "NewsPapers",
+        "category": "Internacional",
+        "totalMentions":"23355",
+        "positiveSentiment":"3",
+        "negativeSentiment":"7"
+},
+{
+        "dateSentiment": "2013-01-04",
+        "media": "NewsPapers",
+        "category": "Nacional",
+        "totalMentions":"23355",
+        "positiveSentiment":"4",
+        "negativeSentiment":"7"
+},
+{
+        "dateSentiment": "2013-01-05",
+        "media": "NewsPapers",
+        "category": "Economia",
+        "totalMentions":"53211",
+        "positiveSentiment":"6",
+        "negativeSentiment":"4"
+},
+{
+        "dateSentiment": "2013-01-06",
+        "media": "NewsPapers",
+        "category": "Social",
+        "totalMentions":"43211",
+        "positiveSentiment":"6",
+        "negativeSentiment":"5"
+},
+{
+        "dateSentiment": "2013-01-07",
+        "media": "NewsPapers",
+        "category": "Transparencia",
+        "totalMentions":"42322",
+        "positiveSentiment":"7.5",
+        "negativeSentiment":"2"
+},
+{
+        "dateSentiment": "2013-01-08",
+        "media": "NewsPapers",
+        "category": "Sanidad",
+        "totalMentions":"55754",
+        "positiveSentiment":"7",
+        "negativeSentiment":"3"
+},
+{
+        "dateSentiment": "2013-01-09",
+        "media": "NewsPapers",
+        "category": "Educacion",
+        "totalMentions":"12222",
+        "positiveSentiment":"9",
+        "negativeSentiment":"2"
+},
+{
+        "dateSentiment": "2013-01-10",
+        "media": "NewsPapers",
+        "category": "Elecciones",
+        "totalMentions":"12223",
+        "positiveSentiment":"10",
+        "negativeSentiment":"1"
+}
+],
+"Facts": [
+{
+        "dateFact": "2013-01-07",
+        "FactDescription": "Barcenas Imputado"
+}
+]
+}

@@ -1,0 +1,40 @@
+{
+ "name": "ABC",
+ "children": [
+  {
+   "name": "analytics",
+   "children": [
+    {
+     "name": "cluster",
+     "children": [
+      {"name": "AgglomerativeCluster", "size": 39380},
+      {"name": "CommunityStructure", "size": 38120},
+      {"name": "HierarchicalCluster", "size": 67140},
+      {"name": "MergeEdge", "size": 7430}
+     ],
+     "size": 56740
+    },
+    {
+     "name": "El País",
+     "children": [
+      {"name": "BetweennessCentrality", "size": 35340},
+      {"name": "LinkDistance", "size": 57310},
+      {"name": "MaxFlowMinCut", "size": 178400},
+      {"name": "ShortestPaths", "size": 59140},
+      {"name": "SpanningTree", "size": 34160}
+     ],
+     "size": 66740
+    },
+    {
+     "name": "El Mundo",
+     "children": [
+      {"name": "AspectRatioBanker", "size": 70740}
+     ],
+     "size": 76740
+    }
+   ],
+   "size": 56740
+  }
+ ],
+ "size": 56740
+}

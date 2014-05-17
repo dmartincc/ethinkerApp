@@ -1,0 +1,80 @@
+['justicia', 'aplica', '\x91ley', 'wert\x92', 'obliga', 'financiar', 'escuelas', 'segregan']
+['ca\xf1ete', 'dice', 'ben\xe9volo', 'valenciano', 'ser', 'machista']
+['sueldo', 'messi', 'subir\xe1', '13', 'millones', 'anuales', 'cerca', '20']
+['psoe', 'propone', 'crear', 'seguro', 'desempleo', 'toda', 'ue']
+['sala', 'cine', 'lugar', 'entendemos', 'solos']
+['libertad', 'cargos', 'joven', 'anim\xf3', 'twitter', 'matar', 'pol\xedticos']
+['costa,', 'titular', 'camp', 'nou']
+['125', 'pasos', 'emboscada', 'isabel', 'carrasco']
+['prorrusos', 'donetsk', 'elaboran', 'constituci\xf3n', 'basada', 'crimea']
+['detenido', 'narco', 'dej\xf3', 'morir', 'hombre', 'extraerle', 'coca']
+['alaya', 'sortea', 'aforados', 'perder', 'parte', 'caso', 'ere']
+['erdogan,', 'manifestante:', '\x93ven', 'aqu\xed', 'abuch\xe9ame\x94']
+['obama', 'inaugura', 'museo', '11-s:', '\x93nada', 'cambiar\xe1', 'somos\x94']
+['sud\xe1n', 'condena', 'mujer', 'horca', 'convertirse', 'cristianismo']
+['moderaci\xf3n', 'salarial', 'frente', 'pol\xedticas', 'crecimiento']
+['bonos', 'autopistas', 'dan', 'm\xe1s', '5%', 'particulares']
+['justicia', 'obliga', 'junta', 'andaluc\xeda', 'concertar', 'centro', 'educativo', 'femenino']
+['ca\xf1ete', 'defiende', 'reivindicando', 'cospedal', 'tejerina:', "'siempre", 'cre\xeddo', "mujeres'"]
+['arias', 'ca\xf1ete', '#homoca\xf1etus']
+['messi', 'aumento']
+['aparecen', 'pintadas', 'ofensivas', 'pasarela', 'muri\xf3', 'carrasco']
+['acude', 'declarar', 'polic\xeda', 'local', 'guard\xf3', 'arma', 'mat\xf3', 'carrasco']
+['bar\xe7a', 'acuerda', 'messi', '\xabadecuaci\xf3n', 'contractual\xbb']
+['resaca', 'cara', 'cara', 'enzarza', 'pp', 'psoe', 'pol\xe9mica', 'mujer']
+['pp', 'destaca', 'papel', 'mujeres', 'ministerio', 'agricultura']
+['espa\xf1a,', 'ser', 'enfermo', 'ue', 'convertirse', 'pa\xedses', 'm\xe1s', 'crece']
+['\xabno', 'entiendo', 'secesionismo', 'catal\xe1n:', 'espa\xf1a', 'm\xe1s', 'descentralizado', 'mundo\xbb']
+['gobierno', 'justifica', 'control', 'verja', 'gibraltar', 'lucha', 'contrabando']
+['erdogan,', 'golpear', 'manifestante:', '\xabd\xf3nde', 'vas,', 'especie', 'esperma', 'israel\xbb']
+['gobierno', 'pp', 'arropan', 'arias', 'ca\xf1ete', 'pese', 'discurso', 'machista']
+['santamar\xeda', 'frena', 'fern\xe1ndez', 'd\xedaz', 'intenci\xf3n', 'censurar', 'twitter']
+['bot\xedn', 'vuelve', 'elogios', 'pol\xedtica', 'rajoy', 'bien', 'va', 'espa\xf1a']
+['pp', 'intenta', 'arreglarlo:', 'aprend\xed', 'loyola', 'palacio']
+['pp', 'reclama', 'ca\xf1ete', 'verdad', 'revuelve', 'arriola']
+['valenciano:', 'dice', 'dej\xf3', 'ganar', 'mujer']
+['ca\xf1ete', 'dice', 'entr\xf3', 'matar', 'temor', 'parecer', 'machista']
+['hija', 'asesina,', 'c\xe1rcel:', 'salgo', 'aqu\xed', 'vida']
+['aparece', 'pintada', 'pasarela', 'le\xf3n:', 'aqu\xed', 'muri\xf3', 'bicho']
+['odiosa', 'comparaci\xf3n', 'espa\xf1a', 'alemania']
+['gobierno', 'dice', 'administraci\xf3n', 'electr\xf3nica', 'ahorr\xf3', '16.136', 'millones']
+1 12 75 82
+2 4 32 22
+3 13 82 75
+4 3 22 14
+5 1 8 0
+6 0 0 9
+7 0 0 9
+8 0 0 9
+9 0 0 9
+10 0 0 9
+11 0 0 9
+12 0 0 9
+13 0 0 9
+14 3 22 14
+15 6 41 34
+16 11 72 64
+17 12 75 72
+18 14 88 82
+19 8 50 48
+20 7 48 41
+21 0 0 9
+22 0 0 9
+23 10 64 56
+24 2 14 8
+25 5 34 32
+26 3 22 14
+27 3 22 14
+28 15 96 88
+29 0 0 9
+30 8 50 48
+31 0 0 9
+32 0 0 9
+33 9 56 50
+34 2 14 8
+35 4 32 22
+36 4 32 22
+37 0 0 9
+38 0 0 9
+39 0 0 9
+40 4 32 22

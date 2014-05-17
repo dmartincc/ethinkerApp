@@ -1,0 +1,9 @@
+{
+"sentiment": [
+{ "entity":"Rajoy" , "positive":"10", "negative":"5", "date":"Mar 2008" }, 
+{ "entity":"Rajoy" , "positive":"9", "negative":"6", "date":"Abr 2008" },
+{ "entity":"Rajoy" , "positive":"8", "negative":"7", "date":"May 2008" },
+{ "entity":"Rajoy" , "positive":"7", "negative":"8", "date":"Jun 2008" },
+{ "entity":"Rajoy" , "positive":"6", "negative":"9", "date":"Jul 2008" },
+]
+}

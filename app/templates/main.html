@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>eThinker Analytics</title>
+	<meta name="Discover your Digital Mentions" content="">
+	<meta name="eThinker" content="">
+
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/style.css" rel="stylesheet">
+	<link href="/static/css/c3.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/c3/c3.js"></script>
+	<script type="text/javascript" src="/static/js/d3/d3.js"></script>    
+	<script type="text/javascript" src="/static/js/eThinker/categories.js"></script>
+	<script type="text/javascript" src="/static/js/eThinker/sentiment.js"></script>
+	<script type="text/javascript" src="/static/js/eThinker/timeSeries.js"></script>
+	<script type="text/javascript" src="/static/js/eThinker/topDailyCategories.js"></script>
+	{% block topDailyMentions %}{% endblock %}
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-fixed-top" id="nav-bar">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">eThinker</a></li>
+						<li class="active"><a href="#">About</a></li>
+						<li><a href="#">Premium Services</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Feedback</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+				
+			</nav>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<br></br>
+			<h2 class="text-center" id="title">eThinker</h2>
+			<h4 class="text-center text-info">Discover your Digital Mentions</h4>
+			<form class="navbar-form navbar-center" role="search" align="center" method="get">
+				<div class="form-group">
+					<input type="text" background-color="none" class="form-control" id="search-form" />
+				</div> <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+<div class="row clearfix">
+		<div class="col-md-12 column">
+			<br></br>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="/static/img/socialMedia.jpg" />
+						<div class="caption">
+							<h4 class="text-center text-info">Raw Data Processed</h4>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="/static/img/internetMentions.jpg" />
+						<div class="caption">
+							<h4 class="text-center text-info">Top Daily Mentions</h4>
+							<svg id="topDailyMentions" class="topDailyMentions"  width="300" height="250"></svg>
+							<script>topDailyMentions(300,250);</script>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="/static/img/informationAnalyzed.jpg" />
+						<div class="caption">
+							<h4 class="text-center text-info">Top Daily Categories</h4>
+							<svg id="topDailyCategories" class="topDailyCategories"  width="300" height="250"></svg>
+							<script>topDailyCategories(300,250);</script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

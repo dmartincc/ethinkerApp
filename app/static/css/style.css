@@ -1,0 +1,49 @@
+html {
+  background-color: #ffffff;
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+}
+#title {
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.129412);
+  font-size: 75px;
+  text-align: center;
+  color: black;
+  font-family:"sansita one";
+  font-weight: 500;
+}
+#nav-bar{
+  background: rgba(255, 255, 255, 0.278431);
+  border: none;
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.0666667);
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.0666667);
+  -o-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.0666667);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.0666667);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#search-form {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.227451);
+  -moz-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.701961), 0px 1px 2px 0px rgba(0, 0, 0, 0.270588);
+  -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.701961), 0px 1px 2px 0px rgba(0, 0, 0, 0.270588);
+  -o-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.701961), 0px 1px 2px 0px rgba(0, 0, 0, 0.270588);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.701961), 0px 1px 2px 0px rgba(0, 0, 0, 0.270588);
+  width: 400px;
+}
+svg#information{
+  width: 1000px;
+  height: 500px;
+  margin:5px;
+  padding-left: 0;
+  padding-right: 0;
+}

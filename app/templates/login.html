@@ -1,0 +1,186 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Be fashionable, discover the latest fashion trends on clothes, brands and fashion bloggers with itOutfits.">
+    <meta name="keywords" content="it outfits, itoutfits, fashion bloggers, fashion trends, fashionista, latest fashion trends, fashion, models, clothes, outfits, shoes, trousers, jackets, street sytle, jeans">
+    <meta name="twitter:site" content="@itoutfits">
+    <meta name="twitter:domain" content="itoutfits.com">
+    <title>mentions | Discover your digital mentions network</title>
+    <link rel="stylesheet" href="static/css/foundation.css" />
+    <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
+    <script src="static/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    
+    <style>
+   
+      h1, h4, h2, footer {
+      color: white;
+      font-family: "Proxima", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 100;
+      letter-spacing: 1px;
+      line-height: 1.325;
+      }
+      
+
+    
+    #footer{
+      height: 50px;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      line-height: 50px;
+      color: #aaa;
+      text-align: center;
+      width: 100%;    }
+
+    .image {
+     height: 100%;     
+    }
+
+    .search {
+     color: black;     
+     opacity:0.8;    
+    }
+      
+    
+    
+    .extra-content{
+      background-color: white !important;
+    }   
+
+    .upper-section{
+      background-image: url(/static/img/landingPageBackground.jpg); 
+      height: 400px; 
+      width: 100%;       
+    }  
+
+    .team{
+      background-color: #F0F0F0 !important;
+    } 
+
+    .footer{
+      background-color: #4A4949 !important;
+      height: 75px;   
+    } 
+     
+    </style>
+    <script>      
+    </script>
+  </head>
+  <body>
+     
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/"><strong>mentions</strong></a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><a href="#">What</a></li>
+          <li class="active"><a href="#">About</a></li>
+          <li class="active"><a href="#">Team</a></li>
+          <li class="active"><a href="#">Contact</a></li>
+          <li class="active"><a href="/login">Login</a></li>          
+        </ul>        
+      </section>
+  </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+ 
+    <div class="row">
+      <div class="small-12 large-6 small-centered  columns">
+        {% if message %}
+        <div data-alert class="alert-box success radius">
+          {{message}}
+          <a href="#" class="close">&times;</a>
+        </div>
+        {% endif %}
+          <br>
+          <div class="panel radius">
+            <form action="/login" method="POST">  
+              <h4> Sign in to Mentions</h4>
+              <br>
+              <input type="text" name="user" placeholder="Username or email">           
+              <br>             
+              <input type="text" name="password" placeholder="Password">
+              <br>
+              <button class="button tiny radius ">Sign in</button>                    
+          </form>
+        
+        
+  
+    </div>
+      </div>
+    </div>
+    
+      <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  
+  
+  <div class="footer">
+    <br>
+    <div class="row">
+    <footer class="text-center">            
+            Handcrafted by <strong>mentions</strong> since 2014.
+           |<a href="mailto:admin@itoutfits.com" style="color: white"> Contact |<a>
+            <a href="/about" style="color: white"> About us |<a>
+            <a href="/sitemap" style="color: white"> Sitemap<a>
+    </footer>
+    </div>
+    <br>
+     </div>
+       
+        
+    <script src="static/js/vendor/jquery.js"></script>
+    <script src="static/js/foundation.min.js"></script>
+    <script>      
+      $(document).foundation();      
+    </script>
+    <script>      
+      $('.row[data-match-height]').each(function(){
+      var self = $(this);
+      self.find('.panel').height(self.height());
+      $(window).on('resize', function(event) {
+        var row_width = self.width();
+        var panels = self.find('.panel');
+        // Reset height of the panels
+        panels.height('');
+        var h = self.height();
+        panels.each(function() {
+          var panel = $(this);
+          if ((row_width - panel.width()) > 40) {
+            panel.height(h);
+          }
+        });
+      });
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+{
+  "name": "sys", 
+  "children": [
+    {
+      "name": "WCNV", 
+      "children": [
+        {
+          "name": "Converter", 
+          "size": 100
+        }, 
+        {
+          "name": "Grid", 
+          "size": 200
+        }
+      ]
+    }, 
+    {
+      "name": "WGEN", 
+      "children": [
+        {
+          "name": "Gen", 
+          "children": [
+            {
+              "name": " inverter", 
+              "size": 300
+            }
+          ]
+        }, 
+        {
+          "name": "Generator", 
+          "size": 400
+        }, 
+        {
+          "name": "Grid", 
+          "size": 500
+        }
+      ]
+    }, 
+    {
+      "name": "WNAC", 
+      "children": [
+        {
+          "name": "Environment", 
+          "size": 600
+        }
+      ]
+    }, 
+    {
+      "name": "WROT", 
+      "children": [
+        {
+          "name": "Hub", 
+          "size": 700
+        }, 
+        {
+          "name": "Rotor", 
+          "size": 800
+        }
+      ]
+    }, 
+    {
+      "name": "WTRF", 
+      "children": [
+        {
+          "name": "Grid", 
+          "size": 900
+        }
+      ]
+    }, 
+    {
+      "name": "WTRM", 
+      "children": [
+        {
+          "name": "Brake", 
+          "size": 1000
+        }, 
+        {
+          "name": "Gear", 
+          "size": 1100
+        }, 
+        {
+          "name": "Hydraulics", 
+          "size": 1200
+        }
+      ]
+    }, 
+    {
+      "name": "WTUR", 
+      "children": [
+        {
+          "name": "xxx", 
+          "size": 1300
+        }, 
+        {
+          "name": "Controller", 
+          "size": 1400
+        }, 
+        {
+          "name": "Environment", 
+          "size": 1500
+        }, 
+        {
+          "name": "Grid", 
+          "size": 1600
+        }, 
+        {
+          "name": "Miscellaneous", 
+          "size": 1700
+        }, 
+        {
+          "name": "Pitch", 
+          "size": 1800
+        }, 
+        {
+          "name": "System", 
+          "size": 1900
+        }, 
+        {
+          "name": "Turbine", 
+          "size": 2000
+        }, 
+        {
+          "name": "Yaw", 
+          "size": 2100
+        }
+      ]
+    }, 
+    {
+      "name": "WYAW", 
+      "children": [
+        {
+          "name": "Yaw", 
+          "size": 2200
+        }
+      ]
+    }
+  ]
+}

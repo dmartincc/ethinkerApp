@@ -1,0 +1,39 @@
+{
+ "topDailyMentions": [
+{
+        "entityName": "Rajoy",
+        "mentions": "200",
+        "sentiment": "10"
+},
+{
+        "entityName": "Rubalcaba",
+        "mentions": "180",
+        "sentiment": "5"
+},
+{
+        "entityName": "Ronaldo",
+        "mentions": "120",
+        "sentiment": "0"
+},
+{
+        "entityName": "Bieber",
+        "mentions": "80",
+        "sentiment": "-5"
+},
+{
+       "entityName": "Aba",
+        "mentions": "60",
+        "sentiment": "-8"
+},
+{
+       "entityName": "BBVA",
+        "mentions": "75",
+        "sentiment": "4"
+},
+{
+       "entityName": "Rey",
+        "mentions": "40",
+        "sentiment": "-10"
+}
+]
+}

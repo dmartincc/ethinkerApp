@@ -1,0 +1,39 @@
+{
+ "topDailyCategories": [
+{
+        "categoryName": "Futbol",
+        "mentions": "400",
+        "sentiment": "10"
+},
+{
+        "categoryName": "Guerra",
+        "mentions": "120",
+        "sentiment": "5"
+},
+{
+        "categoryName": "Elecciones",
+        "mentions": "135",
+        "sentiment": "0"
+},
+{
+        "categoryName": "Vacaciones",
+        "mentions": "90",
+        "sentiment": "-5"
+},
+{
+        "categoryName": "Impuestos",
+        "mentions": "140",
+        "sentiment": "-5"
+},
+{
+        "categoryName": "Independencia",
+        "mentions": "340",
+        "sentiment": "-5"
+},
+{
+       "categoryName": "Corrupcion",
+        "mentions": "210",
+        "sentiment": "-10"
+}
+]
+}
