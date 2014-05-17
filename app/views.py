@@ -55,7 +55,7 @@ def index():
     
     mongoData = db.articles.aggregate(pipeTopMentions)
     entities=[]
-    for item in mongoData['result'][0:9]:
+    for item in mongoData['result'][0:15]:
         dic={}
         dic['entityName']=item['_id']
         dic['mentions']=item['count']
@@ -73,11 +73,17 @@ def index():
         categories.append(dic)
     topDailyCat = { "topDailyCategories": categories}
 
+    articles = db.articles.find({"date":{"$gt": last24Hours}}).count()
 
-    print topDailyMentions
+    print articles
     return render_template("topDailyMentions.html",
+                            articles = articles,
                             mentions = topDailyMentions,
                             categories = topDailyCat,
+                            title = "Welcome")
+@app.route('/entities')
+def entities():
+    return render_template("resultEntity.html",                            
                             title = "Welcome")
 
 @app.route('/about')
@@ -176,3 +182,4 @@ def sitemap():
     url_root = request.url_root[:-1]
     rules = app.url_map.iter_rules()
     return render_template('sitemap.xml', url_root=url_root, rules=rules)
+

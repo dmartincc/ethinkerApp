@@ -37,7 +37,7 @@ d3.json(data, function(error, root) {
   node.append("circle")
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) {
-             var rgbScale = d3.scale.linear().domain([-10,0,10]).range(["#F8A5A5", "#F8F4A5", "#A5F8AA"]);
+             var rgbScale = d3.scale.linear().domain([-10,0,10]).range(["#960D00", "#F8F4A5", "#06A12F"]);
              return rgbScale(d.color);
 
       })
@@ -46,7 +46,7 @@ d3.json(data, function(error, root) {
   node.append("text")
       .attr("dy", ".3em")
       .style("text-anchor", "middle")
-      .text(function(d) { return d.className.substring(0, d.r / 2); });
+      .text(function(d) { return d.className.substring(0, d.r ); });
 });
 
 // Returns a flattened hierarchy containing all leaf nodes under the root.

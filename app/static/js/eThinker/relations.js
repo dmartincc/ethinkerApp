@@ -17,7 +17,7 @@ var svg = d3.select(".information").append("svg")
 var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
-d3.json("data/relations.json", function(error,json) {   
+d3.json("/static/data/relations.json", function(error,json) {   
   root = json;
   update();
 });
