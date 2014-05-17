@@ -51,7 +51,9 @@ def blogsData(blogs,time,db):
 					imagesUrl.append(e.attributes.get('src','').encode('utf-8'))
 				dic['images'] = imagesUrl
 				dic['entities']=nlpModules.extract_entities_regex(dic['titlePost']+" "+text.encode('utf-8'))
-				dic['sentiment']=nlpModules.sentimentAnalysis(text.encode('utf-8'))
+				sentiment=nlpModules.sentimentAnalysis(text.encode('utf-8'))
+				dic['sentimentScore']=sentiment[0]
+				dic['sentimentCategory']=sentiment[1]
 			elif item.summary:
 				text = plaintext(item.summary)
 				dic['content'] = text.encode('utf-8').replace("\xe2\x80\x99","'").replace("\n"," ").replace(":"," ")
@@ -61,7 +63,9 @@ def blogsData(blogs,time,db):
 					imagesUrl.append(e.attributes.get('src','').encode('utf-8'))
 				dic['images'] = imagesUrl
 				dic['entities']=nlpModules.extract_entities_regex(dic['titlePost']+". "+text.encode('utf-8'))
-				dic['sentiment']=nlpModules.sentimentAnalysis(text.encode('utf-8'))
+				sentiment=nlpModules.sentimentAnalysis(text.encode('utf-8'))
+				dic['sentimentScore']=sentiment[0]
+				dic['sentimentCategory']=sentiment[1]
 			if item.published:
 				dic['published'] = item.published.encode('utf-8')			
 			if "tags" in item:
