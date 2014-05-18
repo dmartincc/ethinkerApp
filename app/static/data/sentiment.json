@@ -7,7 +7,8 @@
         "category": "Corrupcion",
         "totalMentions":"10403",
         "positiveSentiment":"0",
-        "negativeSentiment":"10"
+        "negativeSentiment":"10",
+        "neutralSentiment":"4"
 },
 {
         "dateSentiment": "2013-01-02",
@@ -15,7 +16,8 @@
         "category": "Politica",
         "totalMentions":"11323",
         "positiveSentiment":"3",
-        "negativeSentiment":"9"
+        "negativeSentiment":"9",
+        "neutralSentiment":"3"
 },
 {
         "dateSentiment": "2013-01-03",
@@ -23,7 +25,8 @@
         "category": "Internacional",
         "totalMentions":"23355",
         "positiveSentiment":"3",
-        "negativeSentiment":"7"
+        "negativeSentiment":"7",
+        "neutralSentiment":"4"
 },
 {
         "dateSentiment": "2013-01-04",
@@ -31,7 +34,8 @@
         "category": "Nacional",
         "totalMentions":"23355",
         "positiveSentiment":"4",
-        "negativeSentiment":"7"
+        "negativeSentiment":"7",
+        "neutralSentiment":"2"
 },
 {
         "dateSentiment": "2013-01-05",
@@ -39,7 +43,8 @@
         "category": "Economia",
         "totalMentions":"53211",
         "positiveSentiment":"6",
-        "negativeSentiment":"4"
+        "negativeSentiment":"4",
+        "neutralSentiment":"5"
 },
 {
         "dateSentiment": "2013-01-06",
@@ -47,15 +52,17 @@
         "category": "Social",
         "totalMentions":"43211",
         "positiveSentiment":"6",
-        "negativeSentiment":"5"
+        "negativeSentiment":"5",
+        "neutralSentiment":"1"
 },
 {
         "dateSentiment": "2013-01-07",
         "media": "NewsPapers",
         "category": "Transparencia",
         "totalMentions":"42322",
-        "positiveSentiment":"7.5",
-        "negativeSentiment":"2"
+        "positiveSentiment":"7",
+        "negativeSentiment":"2",
+        "neutralSentiment":"6"
 },
 {
         "dateSentiment": "2013-01-08",
@@ -63,7 +70,8 @@
         "category": "Sanidad",
         "totalMentions":"55754",
         "positiveSentiment":"7",
-        "negativeSentiment":"3"
+        "negativeSentiment":"3",
+        "neutralSentiment":"5"
 },
 {
         "dateSentiment": "2013-01-09",
@@ -71,7 +79,8 @@
         "category": "Educacion",
         "totalMentions":"12222",
         "positiveSentiment":"9",
-        "negativeSentiment":"2"
+        "negativeSentiment":"2",
+        "neutralSentiment":"4"
 },
 {
         "dateSentiment": "2013-01-10",
@@ -79,7 +88,8 @@
         "category": "Elecciones",
         "totalMentions":"12223",
         "positiveSentiment":"10",
-        "negativeSentiment":"1"
+        "negativeSentiment":"1",
+        "neutralSentiment":"5"
 }
 ],
 "Facts": [
