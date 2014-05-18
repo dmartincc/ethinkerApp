@@ -25,10 +25,11 @@ var brush = d3.svg.brush().x(x2).on("brush", brushed);
 
 var color = d3.scale.category10();
 
-var line = d3.svg.line()
+var line = d3.svg.area()
     .interpolate("basis")
     .x(function(d) {return x(d.date); })
-    .y(function(d) { return y(d.sentiment); });
+    .y0(height/2)
+    .y1(function(d) { return y(d.sentiment); });
 
 var line2 = d3.svg.area()
     .interpolate("monotone")
@@ -53,13 +54,17 @@ var context = svg.append("g")
 /*var context = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");*/
-var data = {{timeseries|tojson|safe}};
-console.log(data);
+var dataMongoDB = {{timeseries|tojson|safe}};
+console.log(dataMongoDB);
 d3.json("/static/data/sentiment.json", function(error, data) {
+  //data=dataMongoDB;
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "dateSentiment"; }));
 
   data.sentiments.forEach(function(d) {
     d.dateSentiment = parseDate(d.dateSentiment);
+  });
+  dataMongoDB.sentiments.forEach(function(d) {
+    d.date = parseDate(d.date);
   });
 
   var positiveSentiment = ({name: "Positive",values: []});
@@ -68,15 +73,78 @@ d3.json("/static/data/sentiment.json", function(error, data) {
   var mentions = [];
   var dateDomain = [];
 
-  data.sentiments.forEach(function(d){
+  /*data.sentiments.forEach(function(d){
     positiveSentiment.values.push({"date": d.dateSentiment, "sentiment": +d.positiveSentiment});
     negativeSentiment.values.push({"date": d.dateSentiment, "sentiment": +d.negativeSentiment});
     neutralSentiment.values.push({"date": d.dateSentiment, "sentiment": +d.neutralSentiment});
     mentions.push({"date": d.dateSentiment, "totalMentions": +d.totalMentions});
     dateDomain.push(d.dateSentiment);
     
+  });*/
+
+  for (var i=0;i<dataMongoDB.sentiments.length;i++){
+    dateDomain.push(dataMongoDB.sentiments[i].date);
+    mentions.push({
+        "date": dataMongoDB.sentiments[i].date,
+        "totalMentions": +dataMongoDB.sentiments[i].totalMentions
+    });
+    switch(dataMongoDB.sentiments[i].sentimentCategory)
+    {
+      case "Neutral":
+        neutralSentiment.values.push({"date": dataMongoDB.sentiments[i].date,
+         "sentiment": +dataMongoDB.sentiments[i].sentimentAvg});
+        break;
+      case "Positive":
+        positiveSentiment.values.push({"date": dataMongoDB.sentiments[i].date,
+         "sentiment": +dataMongoDB.sentiments[i].sentimentAvg});
+        break;
+      case "Negative":
+        negativeSentiment.values.push({"date": dataMongoDB.sentiments[i].date,
+         "sentiment": +dataMongoDB.sentiments[i].sentimentAvg});
+        break;
+      default: 
+        neutralSentiment.values.push({"date": dataMongoDB.sentiments[i].date,
+         "sentiment": +dataMongoDB.sentiments[i].sentimentAvg});
+        break;
+    }
+  };
+  positiveSentiment.values.sort(function (a, b) {
+    if (a.date > b.date)
+      return 1;
+    if (a.date < b.date)
+      return -1;
+    return 0;
   });
-  sentiments = [positiveSentiment,negativeSentiment];
+  negativeSentiment.values.sort(function (a, b) {
+    if (a.date > b.date)
+      return 1;
+    if (a.date < b.date)
+      return -1;
+    return 0;
+  });
+  neutralSentiment.values.sort(function (a, b) {
+    if (a.date > b.date)
+      return 1;
+    if (a.date < b.date)
+      return -1;
+    return 0;
+  });
+  mentions.sort(function (a, b) {
+    if (a.date > b.date)
+      return 1;
+    if (a.date < b.date)
+      return -1;
+    return 0;
+  });
+  dateDomain.sort(function (a, b) {
+    if (a.date > b.date)
+      return 1;
+    if (a.date < b.date)
+      return -1;  
+    return 0;
+  });
+
+  sentiments = [positiveSentiment,negativeSentiment,neutralSentiment];
   mentionsTT = [mentions];
 
   x.domain([d3.min(dateDomain),d3.max(dateDomain)]);
@@ -117,7 +185,7 @@ d3.json("/static/data/sentiment.json", function(error, data) {
       .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y",6)
-      .attr("dy", "2.40em")
+      .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("MENTIONS");
 
@@ -132,7 +200,8 @@ d3.json("/static/data/sentiment.json", function(error, data) {
       .attr("d", function(d) { 
         return line(d.values); 
       })
-      .style("stroke", function(d) { return color(d.name); });
+      .style("stroke", function(d) { return color(d.name); })
+      .style("fill", function(d) { return color(d.name); });
 
   sents.append("text")
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
