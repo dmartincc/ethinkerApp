@@ -38,10 +38,17 @@ var svg = d3.select(".information").append("svg")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-var context = svg.append("g")
+var svg2 = d3.select(".information").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height2 + margin2.top + margin2.bottom)
+    .append("g")
     .attr("class", "context")
-    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin2.top + ")");
+
+
+/*var context = svg.append("g")
+    .attr("class", "context")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");*/
 
 d3.json("/static/data/sentiment.json", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "dateSentiment"; }));
@@ -65,6 +72,7 @@ d3.json("/static/data/sentiment.json", function(error, data) {
     
   });
   sentiments = [positiveSentiment,negativeSentiment];
+  mentionTotales = [mentions];
 
   x.domain([d3.min(dateDomain),d3.max(dateDomain)]);
   
@@ -74,6 +82,7 @@ d3.json("/static/data/sentiment.json", function(error, data) {
   ]);
 
   x2.domain(x.domain());
+  y2.domain(y.domain());
   y2.domain([
     d3.min(mentions, function(c) { return d3.min(c.values, function(v) { return v.mentions; }); }),
     d3.max(mentions, function(c) { return d3.max(c.values, function(v) { return v.mentions; }); })
@@ -84,7 +93,7 @@ d3.json("/static/data/sentiment.json", function(error, data) {
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
-  context.append("g")
+  svg2.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
@@ -119,7 +128,18 @@ d3.json("/static/data/sentiment.json", function(error, data) {
       .text(function(d) { return d.name; });
 
   /*IMPRESION DE MENCIONES*/
-  context.append("path")
+  var city = svg2.selectAll(".mentions")
+      .data(mentionTotales)
+      .enter().append("g")
+      .attr("class", "mentions");
+  
+  city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { 
+        return line2(d.values); 
+      })
+      .style("stroke", function(d) { return color(d.name); });
+  /*context.append("path")
       .data(mentions)
       .attr("class", "area")
       .attr("d", function(d) { 
@@ -131,7 +151,7 @@ d3.json("/static/data/sentiment.json", function(error, data) {
       .call(brush)
       .selectAll("rect")
       .attr("y", -6)
-      .attr("height", height2 + 7);
+      .attr("height", height2 + 7);*/
 });
 
 function brushed() {
