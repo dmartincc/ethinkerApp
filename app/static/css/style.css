@@ -71,10 +71,16 @@ svg#information{
   display: none;
 }
 
-.line {
+.line{
   fill: none;
   stroke: steelblue;
   stroke-width: 1.5px;
+}
+.line2{
+  fill: steelblue;
+  stroke: steelblue;
+  stroke-width: 0.5px;
+  fill-opacity: .125;
 }
 .brush .extent {
   stroke: #fff;

@@ -5,7 +5,7 @@
         "dateSentiment": "2013-01-01",
         "media": "NewsPapers",
         "category": "Corrupcion",
-        "totalMentions":"10403",
+        "totalMentions":"112",
         "positiveSentiment":"0",
         "negativeSentiment":"10",
         "neutralSentiment":"4"
