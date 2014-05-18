@@ -84,6 +84,7 @@ def index():
 @app.route('/entities')
 def entities():
     query="Mariano Rajoy"
+    setpoint = datetime.now() - timedelta(hours=72)
     db = get_db('dev-ethinker')
     pipe = [{"$unwind":"$entities"},
             {"$match":{ "entities":query}},
@@ -111,10 +112,31 @@ def entities():
         dic['sentimentSum']=item['sentimentSum']
         dic['sentimentAvg']=item['sentimentAvg']
         output.append(dic)
-        
+
+
+    pipeGraph=[{"$match":{ "date":{"$gt": setpoint}}},{"$unwind":"$entities"},{"$unwind":"$tags"},{"$match":{ "entities":query}},
+    {"$group":{"_id":{"category":"$tags","author":"$titleBlog"},"size":{"$sum":1}}},   
+    {"$project":{"author":"$_id.author","category":"$_id.category","size":"$size",}}]  
+    mongoDataGraph = db.articles.aggregate(pipeGraph)
+    #dataGraph=sorted(mongoDataGraph,key=lambda x:x)
+    
+    name_to_node = {}    
+    root = {'name': query, 'children': []}
+    num=0
+    for item in mongoDataGraph['result']:
+        parent_node = name_to_node.get(item['author'])
+        if not parent_node:
+            parent_node = {'name': item['author']}
+            root['children'].append(parent_node)
+            child_node = {'name': item['category'], 'size':item['size']*10}
+        parent_node.setdefault('children', []).append(child_node)
+        num+=1
+
+           
     data = {"entityName": query,"sentiments":output }
     return render_template("sentiment.html", 
-                            timeseries = data,                           
+                            timeseries = data,
+                            graph=root,                           
                             title = "Welcome")
 
 @app.route('/about')

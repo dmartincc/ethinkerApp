@@ -13,6 +13,19 @@ def cluster(rows):
                result.append({"name": k,"children":cluster(group_rows)})
  
     return result
+
+def clusterJson(rows):
+    result = []
+    data = sorted(rows, key=lambda r: r[1])
+    for k, g in itertools.groupby(rows, lambda r: r[0]):
+        group_rows = [row[1:] for row in g]
+ 
+        if len(row[1:]) == 1:
+               result.append({"name": row[0],"size": int(row[1])*100})
+        else:
+               result.append({"name": k,"children":cluster(group_rows)})
+ 
+    return result
  
 if __name__ == '__main__':
     s = '''\
