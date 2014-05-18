@@ -83,7 +83,38 @@ def index():
                             title = "Welcome")
 @app.route('/entities')
 def entities():
-    return render_template("resultEntity.html",                            
+
+    db = get_db('dev-ethinker')
+    pipe = [{"$unwind":"$entities"},
+            {"$match":{ "entities":"Mariano Rajoy"}},
+            {"$group":{"_id":{"day": { "$dayOfMonth": "$date" },"month": { "$month": "$date" },"year": { "$year": "$date" },"sentimentCategory":"$sentimentCategory"},
+                       "count":{"$sum":1},"sentimentAvg": {"$avg":"$sentimentScore"},"sentimentSum": {"$sum":"$sentimentScore"}}},   
+            {"$project":{"day":"$_id.day",
+                         "month":"$_id.month",
+                         "year":"$_id.year",
+                         "sentimentAvg": "$sentimentAvg",
+                         "sentimentSum": "$sentimentSum",
+                         "mentions":"$count",
+                         "sentimentCategory": "$_id.sentimentCategory"}}]
+
+    mongoDataCat = db.articles.aggregate(pipe)
+    output=[]
+    for item in mongoData['result']:
+        dic={}
+        dic['date']=str(item["_id"]['year'])+"-"+str(item["_id"]['month'])+"-"+str(item["_id"]['day'])
+        dic['totalMentions']=item['mentions']
+        if 'sentimentCategory' in item:
+            dic['sentimentCategory']=item['sentimentCategory']
+        else:
+            dic['sentimentCategory']='Neutral'
+        dic['totalMentions']=item['mentions']
+        dic['sentimentSum']=item['sentimentSum']
+        dic['sentimentAvg']=item['sentimentAvg']
+
+        output.append(dic) 
+    
+    return render_template("resultEntity.html", 
+                            data = output,                           
                             title = "Welcome")
 
 @app.route('/about')
