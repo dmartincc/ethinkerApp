@@ -83,10 +83,10 @@ def index():
                             title = "Welcome")
 @app.route('/entities')
 def entities():
-
+    query="Mariano Rajoy"
     db = get_db('dev-ethinker')
     pipe = [{"$unwind":"$entities"},
-            {"$match":{ "entities":"Mariano Rajoy"}},
+            {"$match":{ "entities":query}},
             {"$group":{"_id":{"day": { "$dayOfMonth": "$date" },"month": { "$month": "$date" },"year": { "$year": "$date" },"sentimentCategory":"$sentimentCategory"},
                        "count":{"$sum":1},"sentimentAvg": {"$avg":"$sentimentScore"},"sentimentSum": {"$sum":"$sentimentScore"}}},   
             {"$project":{"day":"$_id.day",
@@ -97,7 +97,7 @@ def entities():
                          "mentions":"$count",
                          "sentimentCategory": "$_id.sentimentCategory"}}]
 
-    mongoDataCat = db.articles.aggregate(pipe)
+    mongoData = db.articles.aggregate(pipe)
     output=[]
     for item in mongoData['result']:
         dic={}
@@ -110,11 +110,11 @@ def entities():
         dic['totalMentions']=item['mentions']
         dic['sentimentSum']=item['sentimentSum']
         dic['sentimentAvg']=item['sentimentAvg']
-
-        output.append(dic) 
-    
-    return render_template("resultEntity.html", 
-                            data = output,                           
+        output.append(dic)
+        
+    data = {"entityName": query,"sentiments":output }
+    return render_template("sentiment.html", 
+                            timeseries = data,                           
                             title = "Welcome")
 
 @app.route('/about')
