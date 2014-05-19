@@ -3,7 +3,7 @@
 <head>
 	
 	<meta charset="utf-8">
-	<title>eThinker Analytics</title>
+	<title>ethinker | {{title}}</title>
 	<meta name="Discover your Digital Mentions" content="">
 	<meta name="eThinker" content="">
 
@@ -32,18 +32,15 @@
 			<nav class="navbar navbar-fixed-top" id="nav-bar">
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">eThinker</a></li>
-						<li class="active"><a href="#">About</a></li>
-						<li><a href="#">Premium Services</a></li>
-						<li><form class="navbar-form navbar-left" role="search">
-							<div class="form-group"><input type="text" class="form-control"/></div>
+						<li class="active"><a href="/">ethinker</a></li>						
+						<li><form action="/entities" method="GET" class="navbar-form navbar-left" role="entities">
+							<div class="form-group"><input type="text" name="search" class="form-control"/></div>
 							<button type="submit" class="btn btn-default">Submit</button>
 						</li>
 					</form>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Feedback</a></li>
-						<li><a href="#">Contact us</a></li>
+						<li><a href="#">Login</a></li>						
 					</ul>
 				</div>
 				
