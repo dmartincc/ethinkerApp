@@ -1,0 +1,295 @@
+{% extends "mainpage.html" %}
+{% block landingpage %}
+<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div data-scroll-reveal="reset">
+          <h1 class="text-center" ><strong style="color: #FF7F0E;">Get the whole picture from news and social data</strong></h1>
+        </div>
+      </div>
+      </div>
+    </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+       <br>
+      <br>
+       <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div class="container">
+      <div class="row text-center">
+      <hr>
+      <div class="col-xs-12 col-md-6 centered">              
+              <div id="wordCloud"></div>        
+      </div>
+      <div class="col-xs-12 col-md-6">        
+        <br>
+        <br>      
+        <div data-scroll-reveal="enter from right and move 50px over 1.33s"> 
+        <h1 class="text-center">ethinker detects automatically every person,
+         organization, brand, product or event in news and social sites
+        </h1>
+      </div>        
+      </div>
+    </div>
+    </div>
+    <div class="container">
+      <div class="row text-center">    
+      <hr>  
+      <div class="col-xs-12 col-md-6">        
+        <br>
+        <br> 
+        <br> 
+        <div data-scroll-reveal="enter left and move 50px over 1.33s">       
+        <h1 class="text-center">We store every mention as a graph, this helps you to have richer insight from your online
+          presence.
+        </h1>
+        </div>        
+      </div>
+      <div class="col-xs-12 col-md-6 col-centered">            
+              <div id="network"></div>            
+      </div>
+    </div>
+    </div>
+    <div class="container">
+      <div class="row text-center">    
+      <hr> 
+      <br>
+      <br> 
+      <div class="col-xs-12 col-md-4"> 
+        <i class="fa fa-search fa-4x"></i>                
+        <h1 class="text-center"><strong style="color: #9c9ede;">Search</strong></h1>
+        <h3> your most interested people, brands, companies, events orlocations.</h3>        
+      </div>
+      <div class="col-xs-12 col-md-4">  
+        <i class="fa fa-signal fa-4x"></i> 
+        <h1 class="text-center"><strong style="color: #9c9ede;">Visualize</strong></h1>
+        <h3>its online mentions trends, sentiment, network and basic info with interactive graphs.</h3>           
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <i class="fa fa-rocket fa-4x"></i> 
+        <h1 class="text-center"><strong style="color: #9c9ede;">Make Conclusions</strong></h1> 
+        <h3>fast  and intutivilly with our visual and fancy reports.</h3>         
+      </div>
+    </div>
+    </div>
+    <div class="container">
+      <div class="row text-center">    
+      <hr>  
+      <br>
+      <br>
+      <div class="col-xs-12 col-md-6">
+        <h3>If you reached this points and you are still interested in our services. Sign up  and be one of the first to join our private beta.</h3>
+        <br> 
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <br>
+        <br>
+        <form action="/signup" method="GET">
+        <button href="/signup" class="btn btn-success btn-lg" type="submit"> Sign Up</button>
+        <form>
+       </div>
+    </div>          
+      <!--div class="row text-center">        
+          <div class="col-xs-12 col-md-6 col-lg-offset-3"> 
+          <br>
+           <form action="/" method="POST">
+            <div class="input-group input-group-lg" >
+               <input type="text" class="form-control" placeholder="Enter email">
+               <span class="input-group-btn">
+                  <button class="btn btn-success" type="button">Sign Up</button>
+               </span>
+            </div>  
+            <form>         
+           </div>              
+       </div-->                  
+      
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+ <script>
+      var w = 350;
+      var h = 300;
+      var fill = d3.scale.category20c();
+
+      d3.layout.cloud().size([w, h])
+          .words([
+            "Barack Obama", "NSA", "Twitter", "The New York Times", "The Guardian", "Technology","Google","El Pais","ABC"].map(function(d) {
+            return {text: d, size: 10 + Math.random() * 100};
+          }))
+          .padding(4)
+          .rotate(function() { return ~~(Math.random() * 1) * 90; })
+          .font("Impact")
+          .fontSize(function(d) { return d.size; })
+          .on("end", draw)
+          .start();
+
+      function draw(words) {
+        d3.select("#wordCloud").append("svg")
+            .attr("width",w)
+            .attr("height",h)
+            .append("g")
+            .attr("transform", "translate(200,150)")
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .style("font-size", function(d) { return d.size + "px"; })
+            .style("font-family", "Impact")
+            .style("fill", function(d, i) { return fill(i); })
+            .attr("text-anchor", "middle")
+            .attr("transform", function(d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            })
+            .text(function(d) { return d.text; })
+            .on('mouseover', function(d){
+                    var word = d3.select(this).style({opacity:'0.8'});
+                    word.select(d.size).style({opacity:'1.0'});                
+               })
+             .on('mouseout', function(d){
+              d3.select(this).style({opacity:'1.0',})
+              d3.select(d.text).style({opacity:'1.0'});
+            });
+             
+      }
+    </script>
+    <script>
+
+    var fill = d3.scale.category20c();
+    var width = 350,
+        height = 300,
+        root;
+
+    var force = d3.layout.force()
+        .linkDistance(100)
+        .charge(-120)
+        .gravity(.05)
+        .size([width, height])
+        .on("tick", tick);
+
+    var svg = d3.select("#network").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var link = svg.selectAll(".link"),
+        node = svg.selectAll(".node");
+
+    var data = "/static/network.json";
+
+    d3.json(data, function(error, json) {
+      root = json;
+      update();
+    });
+
+    function update() {
+      var nodes = flatten(root),
+          links = d3.layout.tree().links(nodes);
+
+      // Restart the force layout.
+      force
+          .nodes(nodes)
+          .links(links)
+          .start();
+
+      // Update links.
+      link = link.data(links, function(d) { return d.target.id; });
+
+      link.exit().remove();
+
+      link.enter().insert("line", ".node")
+          .attr("class", "link");
+
+      // Update nodes.
+      node = node.data(nodes, function(d) { return d.id; });
+
+      node.exit().remove();
+
+      var nodeEnter = node.enter().append("g")
+          .attr("class", "node")
+          .on("click", click)
+          .call(force.drag);
+
+      nodeEnter.append("circle")
+          .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
+
+      nodeEnter.append("text")
+          .attr("dy", ".35em")
+          .text(function(d) { return d.name; });
+
+      node.select("circle")
+          .style("fill", color);
+    }
+
+    function tick() {
+      link.attr("x1", function(d) { return d.source.x; })
+          .attr("y1", function(d) { return d.source.y; })
+          .attr("x2", function(d) { return d.target.x; })
+          .attr("y2", function(d) { return d.target.y; });
+
+      node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    }
+
+
+    function color(d,i) {
+      return d._children ? fill(i) // collapsed package
+          : d.children ? fill(i) // expanded package
+          : fill(i); // leaf node
+    }
+
+    // Toggle children on click.
+    function click(d) {
+      if (d3.event.defaultPrevented) return; // ignore drag
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+      update();
+    }
+
+    // Returns a list of all nodes under the root.
+    function flatten(root) {
+      var nodes = [], i = 0;
+
+      function recurse(node) {
+        if (node.children) node.children.forEach(recurse);
+        if (!node.id) node.id = ++i;
+        nodes.push(node);
+      }
+
+      recurse(root);
+      return nodes;
+    }
+
+</script>
+
+{% endblock %}

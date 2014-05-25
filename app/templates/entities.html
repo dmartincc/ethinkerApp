@@ -9,9 +9,15 @@
   <link href="/static/css/style.css" rel="stylesheet"> 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'> 
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> 
-  <script src="/static/js/d3/d3.layout.cloud.js"></script> 
-    
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/static/js/nv.d3.js"></script> 
+  <script src="/static/js/d3/d3.layout.cloud.js"></script>
+  <link href="/static/css/nv.d3.css" rel="stylesheet" type="text/css"> 
+  <script src="/static/js/graphs/timeserie.js"></script>
+  <script src="/static/js/graphs/network.js"></script> 
+  <script src="/static/js/graphs/wordcloud.js"></script>
+  <script src="/static/js/graphs/piechart.js"></script>  
+  
   <style>
   .navbar{
       background-color: transparent;
@@ -33,27 +39,25 @@
             </button>
             <a class="navbar-brand" href="/"><h2>ethinker</h2></a>
           </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
+          <!-- Collect the nav links, forms, and other content for toggling -->          
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/about"><h3>About Us</h3></a></li>
-              <li><a href="/login"><h3>Sign In</h3></a></li>
-              
+              <li><a href="/about"><h3>Account</h3></a></li>
+              <li><a href="/login"><h3>Sign Out</h3></a></li>              
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
   </div>
     <!-- Begin page content -->
-    {% block landingpage %}{% endblock %}
-    {% block login %}{% endblock %}
-    {% block signup %}{% endblock %}
+    {% block content %}{% endblock %}    
     
-    
+    <div class="container">
     <footer class="text-center">                       
             <h4>Handcrafted by <strong>ethinker</strong> since 2014. |<a href="mailto:admin@itoutfits.com" style="color: grey"> Contact |</a>
            <a href="/sitemap" style="color: grey"> Sitemap</a></h4>
     </footer>
+  </div>
     <div class="loader">
           <i class="fa fa-spinner fa-spin fa-4x"></i>
     </div>    
@@ -61,22 +65,16 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>    
-    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script> 
-      
-    <!--script type="text/javascript" src="/static/js/d3/d3.js"></script--> 
-       
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>            
     <script src='/static/js/scrollReveal.js'></script>
     <script>
           window.scrollReveal = new scrollReveal();
     </script>
-    
-
     <script type="text/javascript">
       $(window).load(function() {
         $(".loader").fadeOut("slow");
       })
-      </script>
+    </script>
      
 
 </body>

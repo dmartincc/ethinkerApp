@@ -1,20 +1,21 @@
-html {
-  background-color: #ffffff;
-  background-image: url();
-  background-repeat: no-repeat;
-  background-position: top center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
 body {
   padding-left: 0;
   padding-right: 0;
   background: transparent;
 }
 
+.loader {
+    position:absolute;
+    top:100px;
+    right:50%; /* Positions 50% from right (right edge will be at center) */
+    width: 100%;
+  height: 100%;
+    margin-right:auto;
+    z-index: 9999;
+    background:  50% 50% no-repeat white;
 
+}
 
 #title{
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.129412);
@@ -27,7 +28,7 @@ body {
 
 h1,h2,h3,h4, h5, h6,p,* {  
   color: grey;
-  font-family:"jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  font-family: 'Roboto', sans-serif;
   letter-spacing: -0.02em;
   font-weight: 400;
   font-style: normal;
@@ -91,18 +92,34 @@ svg#information{
 
 .node circle {
   cursor: pointer;
-  stroke: #3182bd;
+  stroke: transparent;
   stroke-width: 1.5px;
 }
 
 .node text {
-  font: 10px sans-serif;
+  font: 15px sans-serif;
   pointer-events: none;
   text-anchor: middle;
+  color: blue;
 }
 
 line.link {
   fill: none;
   stroke: #9ecae1;
   stroke-width: 1.5px;
+}
+
+#chart svg {
+  height: 400px;
+  width:90%;
+}
+
+#wordcloud svg {
+  height: 400px;
+  width:90%;
+}
+
+.rowtWidth {
+  
+  width:90%;
 }

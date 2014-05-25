@@ -1,0 +1,45 @@
+{
+  "name": "Obama", 
+  "children": [
+    {
+      "name": "The Washinton Post", 
+      "children": [
+        {
+          "name": "Ian Shapira", 
+          "size": 100000
+        }, 
+        {
+          "name": "Carol Morello", 
+          "size": 150000
+        }
+      ],"size": 40000
+    },
+    {
+      "name": "The New York Times", 
+      "children": [
+        {
+          "name": "Paul Krugman", 
+          "size": 90000
+        }, 
+        {
+          "name": "Edward Wong", 
+          "size": 300000
+        }
+      ],"size": 40000
+    },
+    {
+      "name": "The Guardian", 
+      "children": [
+        {
+          "name": "John Harris", 
+          "size": 120000
+        }, 
+        {
+          "name": "Michale White", 
+          "size": 190000
+        }
+      ],"size": 40000
+    }    
+  ],
+  "size": 40000
+}

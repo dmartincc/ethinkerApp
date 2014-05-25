@@ -1,54 +1,24 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-.node circle {
-  cursor: pointer;
-  stroke: #3182bd;
-  stroke-width: 1.5px;
-}
-
-.node text {
-  font: 10px sans-serif;
-  pointer-events: none;
-  text-anchor: middle;
-}
-
-line.link {
-  fill: none;
-  stroke: #9ecae1;
-  stroke-width: 1.5px;
-}
-
-</style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-
-var width = 960,
-    height = 500,
-    root;
+function network(a,b,input){
+var width = a,
+    height = b,
+    root=input;
 
 var force = d3.layout.force()
-    .linkDistance(80)
+    .linkDistance(120)
     .charge(-120)
-    .gravity(.05)
-    .size([width, height])
+    .gravity(.001)
+    .size([120, 120])
     .on("tick", tick);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+var svg = d3.select("#chart svg");
+    
 
 var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
-var data = "network.json";
+console.log(input);
+update();
 
-d3.json(data, function(error, json) {
-  root = json;
-  update();
-});
 
 function update() {
   var nodes = flatten(root),
@@ -79,7 +49,7 @@ function update() {
       .call(force.drag);
 
   nodeEnter.append("circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
+      .attr("r", function(d) { return Math.sqrt(d.size)*10; });
 
   nodeEnter.append("text")
       .attr("dy", ".35em")
@@ -130,5 +100,4 @@ function flatten(root) {
   recurse(root);
   return nodes;
 }
-
-</script>
+}

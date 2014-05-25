@@ -1,0 +1,103 @@
+{% extends "entities.html" %}
+{% block content %}
+	
+	<div class="row">	  
+	  <div class="col-lg-1"></div>
+	  <div class="col-sm-12  col-lg-3">
+	  	<br>
+	  	<br>
+	  	<div class="row text-center">          
+           <form action="/main" method="GET" >
+            <div class="input-group input-group-lg" >
+               <input type="text" class="form-control" name="search" placeholder="Search">
+               <div class="input-group-btn">
+		        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Get Lucky <span class="caret"></span></button>
+		        <ul class="dropdown-menu">
+		          <button class="btn btn-default" name="value" value="summary"><i class="fa fa-user"></i>  Summary</button>
+				  <button class="btn btn-default" name="value" value="mentions"><i class="fa fa-signal"></i>  Mentions</button>
+				  <button class="btn btn-default" name="value" value="sentiment"><i class="fa fa-thumbs-o-up"></i>  Sentiment</button>
+				  <button class="btn btn-default" name="value" value="network"><i class="fa fa-globe"></i>  Universe</button>
+		        </ul>
+		      </div><!-- /btn-group -->
+            </div>  
+            <form>                      
+       </div>
+       <br>       
+       <div class="row">   
+	  	<div class="well">
+	  		
+	  		<div class="media">
+			  <a class="pull-left" href="#">
+			    <img class="media-object" src="http://www.cidob.org/var/plain/storage/images/boletines/cidob_news/diciembre_11/mariano_rajoy_brey/356366-11-esl-ES/mariano_rajoy_brey_ficha_biografia.jpg" alt="...">
+			  </a>
+			  <div class="media-body">
+			    <h2 class="media-heading"><strong>{{title}}</strong></h2>
+			    <h5>Entity's description</h5>
+			    <h4>Entity's summary</h4>
+			  </div>
+			</div>
+			<br>
+			<br>
+			
+	  </div>
+	</div>
+	</div>
+	<div class="col-lg-1"></div>
+	  <div class="col-lg-7">	  	
+	  		<div class="row"><h1>{{value}}</h1></div>	  		 		
+	  		{% if data.sources %}
+	  		<div class="row">
+	  			<div class="col-lg-6">
+	  				<h1><small>Basic</small></h1>
+	  				<h2>Number of Articles:  {{data.articles}}</h2>
+	  				<h2>Global Sentiment:  {{data.sentimentTotal}}</h2>
+	  				<h2>Average Sentiment:  {{data.sentimentAvg}}</h2>
+	  			</div>
+	  			<div class="col-lg-4">
+	  				<h1><small>Sources</small></h1>
+	  				 <div id="piechart" style="height:400px;"><svg></svg></div>
+	  			</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="col-lg-10">
+	  				<h1><small>Content</small></h1>
+	  				<div id="wordCloud"></div>
+	  				  
+	  			</div>
+	  		</div>
+	  		{% else %}
+	  			<div id="chart"><svg></svg></div>	 
+	  		{% endif %}
+
+	  		
+
+	  		  		
+			<!--svg id="information" class="information"></svg-->
+			<script>
+			var data = {{data|tojson|safe}};
+			var value= "{{value}}";
+			if (value=="mentions") {timeserie(data);}
+			else {
+				if (value=="network") {network(100,50,data);}
+				else {
+					if (value=="sentiment") {timeserie(data);}
+					else{wordcloud(data.categories);
+						 piechart(data.sources);};
+				};
+
+			};				
+			</script>		
+	  	
+	  </div>
+	 
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<hr>
+	</div>
+
+
+{% endblock %}

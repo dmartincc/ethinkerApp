@@ -1,5 +1,5 @@
 {% extends "mainpage.html" %}
-{% block login %}
+{% block signup %}
     <br>
     <br>
     <br>
@@ -15,22 +15,20 @@
         {% endif %}
         <br>
         <div class="well">           
-          <form action="/login" method="POST">  
-              <h3> <stron>Sign in to ethinker</strong></h3>
+          <form action="/signup" method="POST">  
+              <h3> <strong>Sign up to ethinker</strong></h3>
+              <h4>
+              <input type="text" class="form-control input-lg" name="user" placeholder="Username">
               <br>
-              <input type="text" class="form-control input-lg" name="user" placeholder="User">                        
+              <input type="text" class="form-control input-lg" name="email" placeholder="Enter email">                        
               <br>             
               <input type="password" class="form-control input-lg" name="password" placeholder="Password"> 
-              <br>
-              <h4>Are you not a user yet? What are you wating for <a href="/signup">Signing Up</a></h4>
-              <br>
-              <button class="btn btn-primary btn-lg ">Sign in</button>                    
+              <br>              
+              <button class="btn btn-primary btn-lg ">Sign Up</button>                    
           </form>
           </div>    
       </div>
-    </div>    
-    
-    
+    </div> 
     
     <br>
     <br>
