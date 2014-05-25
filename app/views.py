@@ -195,15 +195,20 @@ def login():
         password = request.form['password']
         db = get_db('dev-ethinker')         
         status = db.users.find({"user":user,"password":password}).count()
+        user = db.users.find({"user":user,"password":password})
+        print user[0]
         if status == 0:
             message = "Ups, it seems you don´t know your password or user"
            # db.users.insert({"user":user,"password":password})
             return render_template("login.html",
                             message=message)
-        elif status > 0 :
+        elif status > 0  and user[0]['iduser']<101:
             message = "Hey, you are succesfully logged in"
             return redirect("/search", code=302) 
-       
+        elif status > 0  and user[0]['iduser']>=101:
+            message = "Ups, sorry but we are in a private beta and we have rescrticted the access to the first 100 users. We will get in touch with you when we will launch ethinker to outter space."
+            return render_template("login.html",
+                            message=message)       
     elif request.method =="GET":
         return render_template("login.html",
             title="Login")
@@ -215,13 +220,23 @@ def signup():
         password = request.form['password']
         email = request.form['email']
         db = get_db('dev-ethinker')   
+        users = db.users.find().count()
         status = db.users.find({"user":user,"email":email}).count()
-        if status == 0:            
-            db.users.insert({"user":user,"password":password,"email":email})
-            return redirect("/search", code=302)            
-            
-        elif status > 0 :      
-            message = "Ups, it seems you do not know your password or user"            
+        print status
+        if users < 101:
+            if status == 0:            
+                db.users.insert({"user":user,"password":password,"email":email,"iduser":users+1})
+                return redirect("/search", code=302)                  
+            elif status > 0 :      
+                message = "Ups, sorry but that users or email are already register." 
+                return render_template("signup.html",
+                            message=message)
+        else:
+            message = "Ups, sorry but we are in a private beta and we have rescrticted the access to the first 100 users. We will get in touch with you when we will launch ethinker to outter space."
+            if status == 0:            
+                db.users.insert({"user":user,"password":password,"email":email,"iduser":users+1})                               
+            elif status > 0 :      
+                message = "Ups, sorry but that users or email are already register."         
             return render_template("signup.html",
                             message=message)
         
