@@ -1,0 +1,50 @@
+{% extends "entities.html" %}
+{% block search %}	
+	<br>
+	<br>
+	<br>
+	<br>
+<br>
+	<br>
+	<br>
+	<br>
+
+		
+		<div class="container">
+			<div class="row text-center">
+			<div class="col-lg-3"></div>	
+			<div class="col-lg-6">
+	  			<form action="/main" method="GET" >
+		            <div class="input-group input-group-lg" >
+		               <input type="text" class="form-control" name="search" placeholder="Search">
+		               <div class="input-group-btn">
+				        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Get Lucky <span class="caret"></span></button>
+				        <ul class="dropdown-menu">
+				          <button class="btn btn-default" name="value" value="summary"><i class="fa fa-user"></i>  Summary</button>
+						  <button class="btn btn-default" name="value" value="mentions"><i class="fa fa-signal"></i>  Mentions</button>
+						  <button class="btn btn-default" name="value" value="sentiment"><i class="fa fa-thumbs-o-up"></i>  Sentiment</button>
+						  <button class="btn btn-default" name="value" value="network"><i class="fa fa-globe"></i>  Universe</button>
+				        </ul>
+				      </div><!-- /btn-group -->
+		            </div>  
+		        <form>  	  				  
+	  		</div>
+	  		<div class="col-lg-3"></div>	
+		</div>  
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<br>
+
+{% endblock %}

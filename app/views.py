@@ -270,7 +270,7 @@ def login():
                             message=message)
         elif status > 0 :
             message = "Hey, you are succesfully logged in"
-            return redirect("/main", code=302) 
+            return redirect("/search", code=302) 
        
     elif request.method =="GET":
         return render_template("login.html",
@@ -286,7 +286,7 @@ def signup():
         status = db.users.find({"user":user,"email":email}).count()
         if status == 0:            
             db.users.insert({"user":user,"password":password,"email":email})
-            return redirect("/main", code=302)            
+            return redirect("/search", code=302)            
             
         elif status > 0 :      
             message = "Ups, it seems you do not know your password or user"            
@@ -297,6 +297,12 @@ def signup():
     elif request.method =="GET":
         return render_template("signup.html",
             title="Sign Up to ethinker")
+
+@app.route('/search')
+def search():          
+       
+    return render_template("search.html",
+            title="Search")
 
 @app.route('/sitemap')
 def sitemap():
