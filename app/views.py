@@ -230,13 +230,13 @@ def main():
                         if 'author' in item:
                             node["children"].append({'name': item['author'], 'size':item['size']}) 
                         else:
-                            node["children"].append({'name': item['source'], 'size':item['size']})                   
+                            node["children"].append({'name': item['source'], 'size':5})                   
                     else:
                         node = {"name":item['source'], 'children':[],"size":5}
                         if 'author' in item:
                             node["children"].append({'name': item['author'], 'size':item['size']})
                         else:
-                            node["children"].append({'name': item['source'], 'size':item['size']})
+                            node["children"].append({'name': item['source'], 'size':5})
                         output['children'].append(node) 
                 i+=1    
     else:

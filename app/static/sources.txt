@@ -1,0 +1,10 @@
+db.sources.insert({ descriptionBlog: " ",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://expansion.feedsportal.com/rss/portada.xml",  titleBlog: "Portada // expansion.com"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://www.cincodias.com/rss/feed.html?feedId=17029",  titleBlog: "Cinco Días"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://www.infolibre.es/index.php/mod.portadas/mem.rss",  titleBlog: "infoLibre"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://vozpopuli.com/rssNoticias.php",  titleBlog: "Voz Populi"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://www.larazon.es/RSS-portlet/feed/la-razon/portada",  titleBlog: "La Razón"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://feeds.feedburner.com/Noticias-Spain-antena3",  titleBlog: "Antena 3 Noticias"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://www.rtve.es/rss/temas_noticias.xml",  titleBlog: "RTVE Noticias"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://cadenaser.feedsportal.com/c/34284/f/624134/index.rss",  titleBlog: "Cadena Ser"})
+db.sources.insert({ descriptionBlog: "",  updated: "Sun, 25 May 2014 13:10:26 +0200",  rssLink: "http://feeds.feedburner.com/ondacero/ultimasnoticiasradio",  titleBlog: "Onda Cero"})
+http://feeds.feedburner.com/Noticias-Spain-antena3
