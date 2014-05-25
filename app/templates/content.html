@@ -28,12 +28,15 @@
 	  		
 	  		<div class="media">
 			  <a class="pull-left" href="#">
-			    <img class="media-object" src="http://www.cidob.org/var/plain/storage/images/boletines/cidob_news/diciembre_11/mariano_rajoy_brey/356366-11-esl-ES/mariano_rajoy_brey_ficha_biografia.jpg" alt="...">
+			    <img class="media-object" class="img-responsive" style="width:100px;" src={{bio.photo}} alt="...">
 			  </a>
 			  <div class="media-body">
-			    <h2 class="media-heading"><strong>{{title}}</strong></h2>
-			    <h5>Entity's description</h5>
-			    <h4>Entity's summary</h4>
+			    <h2 class="media-heading"><strong>{{title}}</strong></h2>			    
+			    <h5><strong>{{bio.profession}}<strong></h5>
+			    <p>{{bio.description}}</p>
+			    <h5>{{bio.birth}}</h5>
+			    <h5>{{bio.party}}</h5>
+			    
 			  </div>
 			</div>
 			<br>

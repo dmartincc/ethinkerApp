@@ -32,89 +32,12 @@ def index():
     if request.method =="POST":
         return redirect("/main", code=302) 
 
-    else:
-        
-   
+    else:   
         return render_template("landingpage.html",
                                 articles = [],
                                 mentions =  [],
                                 categories = [],
                                 title = "Welcome")
-
-"""@app.route('/entities')
-def entities():    
-    if request.args.get('search'):
-        query = request.args.get('search')
-        print query
-    else:
-        query="Mariano Rajoy"
-    setpoint = datetime.now() - timedelta(hours=500)
-    db = get_db('dev-ethinker')
-    pipe = [{"$unwind":"$entities"},
-            {"$match":{ "entities":query}},
-            {"$group":{"_id":{"day": { "$dayOfMonth": "$date" },"month": { "$month": "$date" },"year": { "$year": "$date" }},
-                       "count":{"$sum":1},"sentimentAvg": {"$avg":"$sentimentScore"},"sentimentSum": {"$sum":"$sentimentScore"}}},   
-            {"$project":{"day":"$_id.day",
-                         "month":"$_id.month",
-                         "year":"$_id.year",
-                         "sentimentAvg": "$sentimentAvg",
-                         "sentimentSum": "$sentimentSum",
-                         "mentions":"$count"}}]
-
-    mongoData = db.articles.aggregate(pipe)
-    output=[]
-    for item in mongoData['result']:
-        dic={}
-        dic['date']=str(item["_id"]['year'])+"-"+str(item["_id"]['month'])+"-"+str(item["_id"]['day'])
-        dic['totalMentions']=item['mentions']
-        if 'sentimentCategory' in item:
-            dic['sentimentCategory']=item['sentimentCategory']
-        else:
-            dic['sentimentCategory']='Neutral'
-        dic['totalMentions']=item['mentions']
-        dic['sentimentSum']=item['sentimentSum']
-        dic['sentimentAvg']=item['sentimentAvg']
-        output.append(dic)
-
-
-    pipeGraph=[{"$match":{ "date":{"$gt": setpoint}}},{"$unwind":"$entities"},{"$unwind":"$tags"},{"$match":{ "entities":query}},
-    {"$group":{"_id":{"author":"$author","source":"$titleBlog"},"size":{"$sum":1}}},   
-    {"$project":{"author":"$_id.author","source":"$_id.source","size":"$size"}}]  
-    mongoDataGraph = db.articles.aggregate(pipeGraph)
-    #dataGraph=sorted(mongoDataGraph,key=lambda x:x)
-    
-    name_to_node = {}    
-    root = {'name': query, 'children': [],"size":10}
-    i=0
-    data=sorted(mongoDataGraph['result'],key=lambda x:x['source'])
-    for item in data:
-        if i == 0:
-            node = {"name":item['source'], 'children':[],"size":5}
-            if 'author' in item:
-                node["children"].append({'name': item['author'], 'size':item['size']})  
-            else:
-                node["children"].append({'name': item['source'], 'size':item['size']})              
-        else:
-            if item['source'] == node['name']:
-                if 'author' in item:
-                    node["children"].append({'name': item['author'], 'size':item['size']}) 
-                else:
-                    node["children"].append({'name': item['source'], 'size':item['size']})                   
-            else:
-                node = {"name":item['source'], 'children':[],"size":5}
-                if 'author' in item:
-                    node["children"].append({'name': item['author'], 'size':item['size']})
-                else:
-                    node["children"].append({'name': item['source'], 'size':item['size']})
-                root['children'].append(node) 
-        i+=1
-    
-    print root 
-    data = {"entityName": query,"sentiments":output }
-    return render_template("sentiment.html", 
-                            timeseries = data,
-                            graph=root,                           
-                            title = query)"""
 
 @app.route('/about')
 def about():
@@ -246,15 +169,24 @@ def main():
     
     #countArticles = db.articles.aggregate(pipeCount)
    
-   # from urllib2 import Request, urlopen
-    #requestAPI = Request("http://devethinker.apiary-mock.com/graph")
-    #response_body = urlopen(requestAPI).read()
+    from urllib2 import Request, urlopen
+    url = Request("http://devethinker.apiary-mock.com/person")
+    response_body = urlopen(url).read()
+    """bio={"name":response_body[0]['name'],
+         "description":response_body[0]['description'].encode('utf-8'),
+         "profession":response_body[0]['profession'].encode('utf-8'),
+         "birth":response_body[0]['birth'].encode('utf-8'),
+         "party":response_body[0]['party'].encode('utf-8'),
+         "photo":response_body[0]['photo']
+    }
+    print bio """
+    print json.loads(response_body)
     
-    #sorted_output = sorted(output, key=lambda k: k['date'])    
     return render_template("content.html",
                             title = query,
                             value = value,                                                 
-                            data = output)    
+                            data = output,
+                            bio = json.loads(response_body))
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login(): 
@@ -299,8 +231,7 @@ def signup():
             title="Sign Up to ethinker")
 
 @app.route('/search')
-def search():          
-       
+def search():            
     return render_template("search.html",
             title="Search")
 
