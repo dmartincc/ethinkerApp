@@ -39,11 +39,6 @@ def index():
                                 categories = [],
                                 title = "Welcome")
 
-@app.route('/about')
-def about():
-    return render_template("about.html",
-                            title = "About")
-
 @app.route("/main", methods = ['GET', 'POST'])
 def main():
     db = get_db('dev-ethinker')    
@@ -259,6 +254,11 @@ def signup():
 def search():            
     return render_template("search.html",
             title="Search")
+
+@app.route('/about')
+def about():
+    return render_template("about.html",
+                            title = "About")
 
 @app.route('/sitemap')
 def sitemap():

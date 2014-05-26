@@ -45,11 +45,12 @@
       </nav>
   </div>
     <!-- Begin page content -->
+    <div class="container">
     {% block landingpage %}{% endblock %}
     {% block login %}{% endblock %}
     {% block signup %}{% endblock %}
-    
-    
+    {% block about %}{% endblock %}
+    </div>
     <footer class="text-center">                       
             <h4>Handcrafted by <strong>ethinker</strong> since 2014. |<a href="mailto:admin@itoutfits.com" style="color: grey"> Contact |</a>
            <a href="/sitemap" style="color: grey"> Sitemap</a></h4>
@@ -70,8 +71,6 @@
     <script>
           window.scrollReveal = new scrollReveal();
     </script>
-    
-
     <script type="text/javascript">
       $(window).load(function() {
         $(".loader").fadeOut("slow");
