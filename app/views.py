@@ -86,6 +86,7 @@ def main():
                     "articles": articlesData['result'][0]['count'],
                     "sentimentAvg": int(articlesData['result'][0]['sentimentAvg']),
                     "sentimentTotal": articlesData['result'][0]['sentimentTotal']}
+            message="Summary data about the entity, number of mentions, global sentiment, sources and content"
 
 
         elif value=='mentions' or value=='sentiment':                                        
@@ -115,10 +116,12 @@ def main():
             sortData=sorted(dataOutput, key=lambda x:x['date']) 
             if value=="mentions":           
                 output=[{'key':"Total Mentions","values":[]}]
+                message="Time serie of mentions about an entity"
                 for item in sortData:
                     output[0]['values'].append([item['milliseconds'],item['totalMentions']])
             elif value=="sentiment":
                 output=[{'key':"Total Sentiment","values":[]},{'key':"Average Sentiment","values":[]}]
+                message="Time serie of global and average sentiment about an entity"
                 for item in sortData:
                     output[0]['values'].append([item['milliseconds'],item['sentimentSum']])
                     output[1]['values'].append([item['milliseconds'],item['sentimentAvg']])
@@ -136,7 +139,7 @@ def main():
             {"$project":{"author":"$_id.author","source":"$_id.source","size":"$size"}}]  
             mongoDataGraph = db.articles.aggregate(pipeGraph)
             #dataGraph=sorted(mongoDataGraph,key=lambda x:x)
-            
+            message="Mentions network about an entity, main node is the entity, first level are sources and second level influencers"
             name_to_node = {}    
             output = {'name': query, 'children': [],"size":10}
             i=0
@@ -169,10 +172,10 @@ def main():
     
     #countArticles = db.articles.aggregate(pipeCount)
    
-    from urllib2 import Request, urlopen
+    """from urllib2 import Request, urlopen
     url = Request("http://devethinker.apiary-mock.com/person")
     response_body = urlopen(url).read()
-    """bio={"name":response_body[0]['name'],
+    bio={"name":response_body[0]['name'],
          "description":response_body[0]['description'].encode('utf-8'),
          "profession":response_body[0]['profession'].encode('utf-8'),
          "birth":response_body[0]['birth'].encode('utf-8'),
@@ -180,13 +183,20 @@ def main():
          "photo":response_body[0]['photo']
     }
     print bio """
-    print json.loads(response_body)
+    #print json.loads(response_body)
+    import wikiSearch as ws
+    try:
+        response_body=ws.searchWikiPage(query)
+    except:
+        response_body=[]
+    #print response_body
     
     return render_template("content.html",
+                            message=message,
                             title = query,
                             value = value,                                                 
                             data = output,
-                            bio = json.loads(response_body))
+                            bio = response_body)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login(): 
