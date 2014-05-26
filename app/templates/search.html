@@ -4,14 +4,19 @@
 	<br>
 	<br>
 	<br>
-<br>
 	<br>
 	<br>
-	<br>
-
-		
-		<div class="container">
-			<div class="row text-center">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-3"></div>	
+			<div class="col-lg-6">
+				<h4>The ethinker bot has extracted {{data.numEntities}} entities from {{data.articles}} articles analyzed from {{data.sources}} sources in the last 6 hours.</h4>
+			</div> 
+		</div>  
+	</div>
+	<br>		
+	<div class="container">
+		<div class="row text-center">
 			<div class="col-lg-3"></div>	
 			<div class="col-lg-6">
 	  			<form action="/main" method="GET" >
@@ -33,28 +38,34 @@
 		</div>  
 	</div>
 	<br>
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-3"></div>
+			<!--div class="col-lg-2">
+				<h2>{{data.articles}}</h2>
+				<h2>{{data.sources}}</h2>
+				<h2>{{data.totalArticles}}</h2>
+			</div-->
+			<div class="col-lg-3">
+				<h3>Top Entities</h3>
+				{% for item in data.entities %}
+				<p><a href="/main?search={{item.entity}}&value=summary">{{item.entity}}</a></p>
+				{% endfor %}
+			</div>
+			<div class="col-lg-3">
+				<h3>Top Categories</h3>
+				{% for item in data.categories %}
+				<p>{{item.category}}</p>
+				{% endfor %}
+			</div>
+			<div class="col-lg-3"></div>
+		</div>  
+	</div>	
 	<br>
 	<br>
 	<br>
 	<br>
-
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-	<br>
-
-	<br>
-
-	<br>
-	<br>
-	<br>
-	<br>
-
 	<br>
 	<br>
 

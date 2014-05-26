@@ -191,17 +191,17 @@ def login():
             message = "Ups, it seems you don´t know your password or user"
            # db.users.insert({"user":user,"password":password})
             return render_template("login.html",
-                            message=message)
+                                    message=message)
         elif status > 0  and user[0]['iduser']<101:
             message = "Hey, you are succesfully logged in"
             return redirect("/search", code=302) 
         elif status > 0  and user[0]['iduser']>=101:
             message = "Ups, sorry but we are in a private beta and we have rescrticted the access to the first 100 users. We will get in touch with you when we will launch ethinker to outter space."
             return render_template("login.html",
-                            message=message)       
+                                    message=message)       
     elif request.method =="GET":
         return render_template("login.html",
-            title="Login")
+                                title="Login")
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup(): 
@@ -219,7 +219,7 @@ def signup():
             elif status > 0 :      
                 message = "Ups, sorry but that users or email are already register." 
                 return render_template("signup.html",
-                            message=message)
+                                        message=message)
         else:
             message = "Ups, sorry but we are in a private beta and we have rescrticted the access to the first 100 users. We will get in touch with you when we will launch ethinker to outter space."
             if status == 0:            
@@ -227,17 +227,20 @@ def signup():
             elif status > 0 :      
                 message = "Ups, sorry but that users or email are already register."         
             return render_template("signup.html",
-                            message=message)
+                                    message=message)
         
        
     elif request.method =="GET":
         return render_template("signup.html",
-            title="Sign Up to ethinker")
+                                title="Sign Up to ethinker")
 
 @app.route('/search')
-def search():            
+def search():  
+    db = get_db('dev-ethinker')
+    trends = db.trends.find().sort("date",-1).limit(1)          
     return render_template("search.html",
-            title="Search")
+                            title="Search",
+                            data=trends[0])
 
 @app.route('/about')
 def about():
@@ -248,5 +251,7 @@ def about():
 def sitemap():
     url_root = request.url_root[:-1]
     rules = app.url_map.iter_rules()
-    return render_template('sitemap.xml', url_root=url_root, rules=rules)
+    return render_template('sitemap.xml',
+                            url_root=url_root, 
+                            rules=rules)
 
