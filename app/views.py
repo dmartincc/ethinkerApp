@@ -164,27 +164,13 @@ def main():
         query="No Entity"
         value="" 
     
-    
-    #countArticles = db.articles.aggregate(pipeCount)
+     
    
-    """from urllib2 import Request, urlopen
-    url = Request("http://devethinker.apiary-mock.com/person")
-    response_body = urlopen(url).read()
-    bio={"name":response_body[0]['name'],
-         "description":response_body[0]['description'].encode('utf-8'),
-         "profession":response_body[0]['profession'].encode('utf-8'),
-         "birth":response_body[0]['birth'].encode('utf-8'),
-         "party":response_body[0]['party'].encode('utf-8'),
-         "photo":response_body[0]['photo']
-    }
-    print bio """
-    #print json.loads(response_body)
     import wikiSearch as ws
     try:
         response_body=ws.searchWikiPage(query)
     except:
-        response_body=[]
-    #print response_body
+        response_body=[]    
     
     return render_template("content.html",
                             message=message,
@@ -200,8 +186,7 @@ def login():
         password = request.form['password']
         db = get_db('dev-ethinker')         
         status = db.users.find({"user":user,"password":password}).count()
-        user = db.users.find({"user":user,"password":password})
-        print user[0]
+        user = db.users.find({"user":user,"password":password})        
         if status == 0:
             message = "Ups, it seems you don´t know your password or user"
            # db.users.insert({"user":user,"password":password})
@@ -226,8 +211,7 @@ def signup():
         email = request.form['email']
         db = get_db('dev-ethinker')   
         users = db.users.find().count()
-        status = db.users.find({"user":user,"email":email}).count()
-        print status
+        status = db.users.find({"user":user,"email":email}).count()        
         if users < 101:
             if status == 0:            
                 db.users.insert({"user":user,"password":password,"email":email,"iduser":users+1})
